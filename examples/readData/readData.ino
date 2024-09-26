@@ -16,8 +16,8 @@
 #include <SoftwareSerial.h>
 #endif
 
-#define UARTMODE //Serial mode
-//#define I2CMODE //I2C mode
+//#define UARTMODE //Serial mode
+#define I2CMODE //I2C mode
 #if defined UARTMODE
 #if defined(ARDUINO_AVR_UNO)||defined(ESP8266)
   SoftwareSerial mySerial(/*rx =*/4, /*tx =*/5);
@@ -27,7 +27,7 @@
 #endif
 #endif
 #if defined I2CMODE
-DFRobot_S12SD s12sd(/*addr = */S12SD_DEVICE_ADDR, /*pWire = */&Wire);
+DFRobot_S12SD s12sd(/*pWire = */&Wire);
 #endif
 
 void setup()
