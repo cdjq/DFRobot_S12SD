@@ -31,10 +31,10 @@
 class DFRobot_S12SD:public DFRobot_RTU{
 public:
   #define S12SD_DEVICE_ADDR                            0X23
-  #define S12SD_INPUTREG_UVS_DATA                      0x06   ///<UVS data
-  #define S12SD_INPUTREG_UVS_INDEX                     0x07   ///<UVS index
-  #define S12SD_INPUTREG_RISK_LEVEL                    0x08   ///<RISK LEVEL   
-
+  #define S12SD_INPUTREG_UVS_DATA                      0x06     ///<UVS data
+  #define S12SD_INPUTREG_UVS_INDEX                     0x07     ///<UVS index
+  #define S12SD_INPUTREG_RISK_LEVEL                    0x08     ///<RISK LEVEL   
+  #define S12SD_DEVICE_PID                             0x427c   ///<RISK LEVEL   
   /**
    * @fn DFRobot_S12SD
    * @brief DFRobot_S12SD constructor
@@ -55,10 +55,10 @@ public:
    * @fn begin
    * @brief Init s12sd device
    * @return Return value init status
-   * @retval 0  Succeed
-   * @retval -1 Failed
+   * @retval true  Succeed
+   * @retval false Failed
    */
-  int8_t begin(void);
+  bool begin(void);
 
   /**
    * @fn readUvOriginalData

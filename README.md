@@ -34,8 +34,8 @@ To use this library, first download the library file, paste it into the \Arduino
    * @fn begin
    * @brief Init s12sd device
    * @return Return value init status
-   * @retval 0  Succeed
-   * @retval -1 Failed
+   * @retval ture  Succeed
+   * @retval false Failed
    */
   int8_t begin(void);
 

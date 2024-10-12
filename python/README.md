@@ -36,19 +36,24 @@ python read_data.py
 ## Methods
 
 ```python
-  def read_UV_original_data(self)
+  def begin()
+    '''!
+      @brief Init s12sd device
+      @return Return value init status
+    '''
+  def read_UV_original_data()
     '''!
       @brief Read the UV voltage value
       @return voltage value (mV)
     '''
 
-  def read_UV_index_data(self)
+  def read_UV_index_data()
     '''!
       @brief Read the UV Index
       @return UV Index
     '''
 
-  def read_risk_level_data(self)
+  def read_risk_level_data()
     '''!
       @brief Read the risk level
       @return 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)

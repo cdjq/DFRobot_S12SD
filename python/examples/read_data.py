@@ -19,12 +19,16 @@ import RPi.GPIO as GPIO
 from DFRobot_S12SD import *
 
 ctype=0
-I2C_1    = 0x01
+I2C_1= 0x01
 
 if ctype==0:
   S12SD = DFRobot_S12SD_I2C(I2C_1)
 else:
   S12SD = DFRobot_S12SD_UART()
+def setup():
+  while (S12SD.begin() == False):
+    print("Sensor initialize failed!!")
+    time.sleep(1) 
 
 def loop():
   data = S12SD.read_UV_original_data()     # Read the UV voltage value
@@ -45,5 +49,6 @@ def loop():
   time.sleep(1)
 
 if __name__ == "__main__":
+  setup()
   while True:
     loop()

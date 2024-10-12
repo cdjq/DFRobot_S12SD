@@ -35,8 +35,8 @@ DFRobot_LTR390UV
    * @fn begin
    * @brief 初始化传感器
    * @return 初始化结果
-   * @retval 0  成功
-   * @retval -1 失败
+   * @retval true  成功
+   * @retval false 失败
    */
   int8_t begin(void);
 

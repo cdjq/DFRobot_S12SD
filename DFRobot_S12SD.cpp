@@ -22,13 +22,25 @@ DFRobot_S12SD::DFRobot_S12SD(Stream *s):DFRobot_RTU(s)
   _s = s;
 }
 
-int8_t DFRobot_S12SD::begin(void)
+bool DFRobot_S12SD::begin(void)
 {
   setTimeoutTimeMs(200);
+  bool ret = false;
   if(_pWire){
     _pWire->begin();
+    _pWire->beginTransmission(_addr);
+    if(_pWire->endTransmission() == 0){
+      ret=true;
+    }
+  }else{
+    uint8_t buffer[2];
+    readReg(0x00,buffer,2);
+    uint16_t data= (uint16_t)buffer[0]<<8|buffer[1];
+    if(data == S12SD_DEVICE_PID){
+      ret=true;
+    }
   }
-  return 0;
+  return ret;
 }
 
 uint16_t DFRobot_S12SD::readUvOriginalData(void)

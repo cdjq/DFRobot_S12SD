@@ -29,6 +29,7 @@ class DFRobot_S12SD():
   S12SD_INPUTREG_UVS_DATA                      =0x06
   S12SD_INPUTREG_UVS_INDEX                     =0x07
   S12SD_INPUTREG_RISK_LEVEL                    =0x08
+  S12SD_DEVICE_PID                             =0x427c
   def __init__(self ,bus = 0 ,baud = 9600, mode = I2C_MODE):
     self.mode = 0
     self.resolution = 0
@@ -41,6 +42,21 @@ class DFRobot_S12SD():
       self.master = modbus_rtu.RtuMaster(serial.Serial(port="/dev/ttyAMA0",baudrate=baud, bytesize=8, parity='N', stopbits=1))
       self.master.set_timeout(1.0)
       
+  def begin(self):
+    '''!
+      @brief Init s12sd device
+      @return Return value init status
+    '''
+    ret=False
+    if self._uart_i2c == self.I2C_MODE:
+      buffer = self._read_reg(0x00,2)
+      data = buffer[0]|buffer[1]<<8
+    else:
+      buffer = self._read_reg(0x00,1)
+      data = buffer[0]
+    if data == self.S12SD_DEVICE_PID:
+      ret =True
+    return ret
 
   def read_UV_original_data(self):
     '''!

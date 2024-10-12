@@ -15,8 +15,8 @@
 #include <SoftwareSerial.h>
 #endif
 
-//#define UARTMODE //Serial mode
-#define I2CMODE //I2C mode
+#define UARTMODE //Serial mode
+//#define I2CMODE //I2C mode
 #if defined UARTMODE
 #if defined(ARDUINO_AVR_UNO)||defined(ESP8266)
   SoftwareSerial mySerial(/*rx =*/4, /*tx =*/5);
@@ -44,7 +44,7 @@ void setup()
 #endif
   Serial.begin(115200);
   
-  while(s12sd.begin() != 0){
+  while(s12sd.begin() != true){
     Serial.println(" Sensor initialize failed!!");
     delay(1000);
   }
@@ -55,17 +55,6 @@ void loop()
   uint16_t voltage = s12sd.readUvOriginalData();//Read the UV voltage value
   uint16_t index  = s12sd.readUvIndexData();// Read the UV index,retuen 0-11
   uint16_t level = s12sd.readRiskLevelData();//Read the risk level,retren 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
-  int sensorValue;
-  int analogValue = analogRead(0);//connect UV sensors to Analog 0
-  if (analogValue<20)
-  {
-    sensorValue = 0;
-  }
-  else
-  {
-    sensorValue = 0.05*analogValue-1;
-  } 
-  Serial.print("sensorValue:"); Serial.println(sensorValue);
   Serial.print("voltage:"); Serial.print(voltage); Serial.println(" mV");
   Serial.print("index:"); Serial.println(index);
   if(level==0)

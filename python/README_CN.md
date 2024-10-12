@@ -38,19 +38,24 @@ python read_data.py
 ## 方法
 
 ```python
-  def read_UV_original_data(self)
+  def begin()
+     '''!
+      @brief 初始化 s12sd 设备,
+      @return 返回值初始化状态
+    '''   
+  def read_UV_original_data()
     '''!
       @brief 读取紫外线电压值
       @return 电压值 (单位：mV)
     '''
 
-  def read_UV_index_data(self)
+  def read_UV_index_data()
     '''!
       @brief 读取紫外线指数
       @return 紫外线指数（0-11）
     '''
 
-  def read_risk_level_data(self)
+  def read_risk_level_data()
     '''!
       @brief 读取风险等级
       @return 0-4 (低风险，中风险，高风险，很高风险，极高风险)
