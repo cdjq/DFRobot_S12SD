@@ -6,7 +6,7 @@
   @license     The MIT License (MIT)
   @author      fary(feng.yang@dfrobot.com)
   @version     V1.0
-  @date        2021-08-31
+  @date        2024-10-11
   @url         https://github.com/DFRobor/DFRobot_S12SD
 '''
 
@@ -42,7 +42,7 @@ class DFRobot_S12SD():
       self.master.set_timeout(1.0)
       
 
-  def read_UV_data(self):
+  def read_UV_original_data(self):
     '''!
       @brief Read the UV voltage value
       @return voltage value (mV)
@@ -55,7 +55,7 @@ class DFRobot_S12SD():
       data = buffer[0]
     return data
 
-  def read_UV_index(self):
+  def read_UV_index_data(self):
     '''!
       @brief Read the UV Index
       @return UV Index
@@ -69,7 +69,7 @@ class DFRobot_S12SD():
     return data  
 
 
-  def read_risk_level(self):
+  def read_risk_level_data(self):
     '''!
       @brief Read the risk level
       @return 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)

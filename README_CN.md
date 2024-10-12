@@ -5,7 +5,7 @@ DFRobot_LTR390UV
 
 一个读取紫外线强度的传感器。
 
-![产品效果图片](../../resources/images/SEN0540.png)
+![产品效果图片](../../resources/images/SEN0636.png)
 
 ## 产品链接（https://www.dfrobot.com）
 
@@ -41,25 +41,25 @@ DFRobot_LTR390UV
   int8_t begin(void);
 
   /**
-   * @fn readUvValue
+   * @fn readUvOriginalData
    * @brief 读取紫外线电压值
    * @return 电压值 (单位：mV)
    */
-  uint16_t readUvValue(void);
+  uint16_t readUvOriginalData(void);
 
   /**
-   * @fn readUvIndex
+   * @fn readUvIndexData
    * @brief 读取紫外线指数
    * @return 紫外线指数（0-11）
    */
-  uint16_t readUvIndex(void);
+  uint16_t readUvIndexData(void);
 
   /**
-   * @fn readUvClass
+   * @fn readRiskLevelData
    * @brief 读取风险等级
    * @return 0-4 (低风险，中风险，高风险，很高风险，极高风险)
    */
-  uint16_t readRiskLevel(void);
+  uint16_t readRiskLevelData(void);
 
 ```
 
@@ -78,7 +78,7 @@ FireBeetle M0      |      X       |      √       |      X        |
 raspberry          |      X       |      √       |      √       |
 
 ## 历史
-- 2024-09-25 - 1.0.0 版本
+- 2024-10-11 - 1.0.0 版本
 
 ## 创作者
 

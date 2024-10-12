@@ -5,11 +5,11 @@ DFRobot_LTR390UV
 
 A sensor that reads the intensity of ultraviolet light.
 
-![产品效果图](../../resources/images/SEN0540.png)
+![产品效果图](../../resources/images/SEN0636.png)
 
 ## Product Link (https://www.dfrobot.com)
 
-    SKU：SEN0540
+    SKU：SEN0636
 
 ## Table of Contents
 
@@ -36,19 +36,19 @@ python read_data.py
 ## Methods
 
 ```python
-  def read_UV_data(self)
+  def read_UV_original_data(self)
     '''!
       @brief Read the UV voltage value
       @return voltage value (mV)
     '''
 
-  def read_UV_index(self)
+  def read_UV_index_data(self)
     '''!
       @brief Read the UV Index
       @return UV Index
     '''
 
-  def read_risk_level(self)
+  def read_risk_level_data(self)
     '''!
       @brief Read the risk level
       @return 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
@@ -74,8 +74,8 @@ python read_data.py
 
 ## History
 
-- 2022-06-30 - Version 1.0.0 released.
+- 2024-10-11 - Version 1.0.0 released.
 
 ## Credits
 
-Written by TangJie(jie.tang@dfrobot.com), 2021. (Welcome to our [website](https://www.dfrobot.com/))
+Written by fary(feng.yang@dfrobot.com), 2024. (Welcome to our [website](https://www.dfrobot.com/))

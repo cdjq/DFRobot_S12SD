@@ -15,9 +15,9 @@ DFRobot_S12SD	KEYWORD1
 #######################################
 
 begin	KEYWORD2
-readUvValue	KEYWORD2
-readUvIndex	KEYWORD2
-readRiskLevel	KEYWORD2
+readUvOriginalData	KEYWORD2
+readUvIndexData	KEYWORD2
+readRiskLevelData	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)

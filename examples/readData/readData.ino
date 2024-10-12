@@ -1,11 +1,10 @@
 /*!
- *@file  readAlsData.ino
- *@brief Run the routine to get ambient light intensity, and change the mode to get UV intensity
- *@n
+ * @file  readAlsData.ino
+ * @brief Run the routine to get UV intensity
  * @n connected table
  * @copyright   Copyright (c) 2021 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
- * @author      [TangJie](jie.tang@dfrobot.com)
+ * @author      [fary](feng.yang@dfrobot.com)
  * @version     V1.0
  * @date        2021-08-31
  * @url         https://github.com/DFRobor/DFRobot_S12SD
@@ -16,8 +15,8 @@
 #include <SoftwareSerial.h>
 #endif
 
-#define UARTMODE //Serial mode
-//#define I2CMODE //I2C mode
+//#define UARTMODE //Serial mode
+#define I2CMODE //I2C mode
 #if defined UARTMODE
 #if defined(ARDUINO_AVR_UNO)||defined(ESP8266)
   SoftwareSerial mySerial(/*rx =*/4, /*tx =*/5);
@@ -27,7 +26,7 @@
 #endif
 #endif
 #if defined I2CMODE
-DFRobot_S12SD s12sd(/*addr = */S12SD_DEVICE_ADDR, /*pWire = */&Wire);
+DFRobot_S12SD s12sd(/*pWire = */&Wire);
 #endif
 
 void setup()
@@ -53,9 +52,20 @@ void setup()
 }
 void loop()
 {
-  uint16_t voltage = s12sd.readUvValue();//Read the UV voltage value
-  uint16_t index  = s12sd.readUvIndex();// Read the UV index,retuen 0-11
-  uint16_t level = s12sd.readRiskLevel();//Read the risk level,retren 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
+  uint16_t voltage = s12sd.readUvOriginalData();//Read the UV voltage value
+  uint16_t index  = s12sd.readUvIndexData();// Read the UV index,retuen 0-11
+  uint16_t level = s12sd.readRiskLevelData();//Read the risk level,retren 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
+  int sensorValue;
+  int analogValue = analogRead(0);//connect UV sensors to Analog 0
+  if (analogValue<20)
+  {
+    sensorValue = 0;
+  }
+  else
+  {
+    sensorValue = 0.05*analogValue-1;
+  } 
+  Serial.print("sensorValue:"); Serial.println(sensorValue);
   Serial.print("voltage:"); Serial.print(voltage); Serial.println(" mV");
   Serial.print("index:"); Serial.println(index);
   if(level==0)

@@ -61,25 +61,25 @@ public:
   int8_t begin(void);
 
   /**
-   * @fn readUvValue
-   * @brief Read the UV voltage value
+   * @fn readUvOriginalData
+   * @brief Read the UV voltage value (0-3300)
    * @return voltage value (mV)
    */
-  uint16_t readUvValue(void);
+  uint16_t readUvOriginalData(void);
 
   /**
-   * @fn readUvIndex
+   * @fn readUvIndexData
    * @brief Read the UV Index
    * @return UV Index
    */
-  uint16_t readUvIndex(void);
+  uint16_t readUvIndexData(void);
 
   /**
-   * @fn readUvClass
+   * @fn readRiskLevelData
    * @brief Read the risk level
    * @return 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
    */
-  uint16_t readRiskLevel(void);
+  uint16_t readRiskLevelData(void);
 
 
 private:

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*
 '''!
   @file  read_data.py
-  @brief Run the routine to get ambient light intensity, and change the mode to get UV intensity
+  @brief Run the routine to get UV intensity
   @copyright   Copyright (c) 2021 DFRobot Co.Ltd (http://www.dfrobot.com)
   @license     The MIT License (MIT)
   @author      fary(feng.yang@dfrobot.com)
   @version     V1.0
-  @date        2024-09-25
+  @date        2024-10-11
   @url         https://github.com/DFRobor/DFRobot_S12SD
 '''
 from __future__ import print_function
@@ -27,9 +27,9 @@ else:
   S12SD = DFRobot_S12SD_UART()
 
 def loop():
-  data = S12SD.read_UV_data()     # Read the UV voltage value
-  index = S12SD.read_UV_index()   # Read the UV index,retuen 0-11
-  level = S12SD.read_risk_level() # Read the risk level,retren 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
+  data = S12SD.read_UV_original_data()     # Read the UV voltage value
+  index = S12SD.read_UV_index_data()   # Read the UV index,retuen 0-11
+  level = S12SD.read_risk_level_data() # Read the risk level,retren 0-4 (Low Risk,Moderate Risk,High Risk,Very High Risk,Extreme Risk)
   print("voltage: {} mV".format(data))
   print("index: {}".format(index))
   if level==0:

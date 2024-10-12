@@ -3,7 +3,7 @@
  * @brief This is the method implementation file of S12SD
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license     The MIT License (MIT)
- * @author [TangJie](jie.tang@dfrobot.com)
+ * @author [fary](feng.yang@dfrobot.com)
  * @version  V1.0
  * @date  2022-05-17
  * @url https://github.com/DFRobor/DFRobot_S12SD
@@ -31,7 +31,7 @@ int8_t DFRobot_S12SD::begin(void)
   return 0;
 }
 
-uint16_t DFRobot_S12SD::readUvValue(void)
+uint16_t DFRobot_S12SD::readUvOriginalData(void)
 {
   uint8_t buffer[2];
   readReg(S12SD_INPUTREG_UVS_DATA,buffer,2);
@@ -39,14 +39,14 @@ uint16_t DFRobot_S12SD::readUvValue(void)
   return data;
 }
 
-uint16_t DFRobot_S12SD::readUvIndex(void)
+uint16_t DFRobot_S12SD::readUvIndexData(void)
 {
   uint8_t buffer[2];
   readReg(S12SD_INPUTREG_UVS_INDEX,buffer,2);
   uint16_t data= (uint16_t)buffer[0]<<8|buffer[1];
   return data;
 }
-uint16_t DFRobot_S12SD::readRiskLevel(void)
+uint16_t DFRobot_S12SD::readRiskLevelData(void)
 {
   uint8_t buffer[2];
   readReg(S12SD_INPUTREG_RISK_LEVEL,buffer,2);

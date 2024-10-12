@@ -5,11 +5,11 @@ DFRobot_LTR390UV
 
 一个读取紫外线强度的传感器。
 
-![产品效果图片](../../resources/images/SEN0540.png)
+![产品效果图片](../../resources/images/SEN0636.png)
 
 ## 产品链接（https://www.dfrobot.com）
 
-    SKU：SEN0540
+    SKU：SEN0636
   
 ## 目录
 
@@ -38,19 +38,19 @@ python read_data.py
 ## 方法
 
 ```python
-  def read_UV_data(self)
+  def read_UV_original_data(self)
     '''!
       @brief 读取紫外线电压值
       @return 电压值 (单位：mV)
     '''
 
-  def read_UV_index(self)
+  def read_UV_index_data(self)
     '''!
       @brief 读取紫外线指数
       @return 紫外线指数（0-11）
     '''
 
-  def read_risk_level(self)
+  def read_risk_level_data(self)
     '''!
       @brief 读取风险等级
       @return 0-4 (低风险，中风险，高风险，很高风险，极高风险)
@@ -76,8 +76,8 @@ python read_data.py
 
 ## History
 
-- 2022-06-30 - 1.0.0 版本
+- 2022-10-11 - 1.0.0 版本
 
 ## Credits
 
-Written by TangJie(jie.tang@dfrobot.com), 2021. (Welcome to our [website](https://www.dfrobot.com/))
+Written by fary(feng.yang@dfrobot.com), 2024. (Welcome to our [website](https://www.dfrobot.com/))
