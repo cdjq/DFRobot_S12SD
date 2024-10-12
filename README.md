@@ -1,4 +1,4 @@
-DFRobot_LTR390UV
+DFRobot_S12SD
 ===========================
 
 * [中文版](./README_CN.md)
